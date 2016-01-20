@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: "Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #737373;
+    background-color: white;
+    margin: 10px 13px 10px 13px;
+}
+table {
+	margin: 10px 0 15px 0;
+	border-collapse: collapse;
+}
+td,th {	
+	border: 1px solid #ddd;
+	padding: 3px 10px;
+}
+th {
+	padding: 5px 10px;	
+}
+
+a {
+    color: #0069d6;
+}
+a:hover {
+    color: #0050a3;
+    text-decoration: none;
+}
+a img {
+    border: none;
+}
+p {
+    margin-bottom: 9px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #404040;
+    line-height: 36px;
+}
+h1 {
+    margin-bottom: 18px;
+    font-size: 30px;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 13px;
+}
+hr {
+    margin: 0 0 19px;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+}
+blockquote {
+    padding: 13px 13px 21px 15px;
+    margin-bottom: 18px;
+    font-family:georgia,serif;
+    font-style: italic;
+}
+blockquote:before {
+    content:"\201C";
+    font-size:40px;
+    margin-left:-10px;
+    font-family:georgia,serif;
+    color:#eee;
+}
+blockquote p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 18px;
+    margin-bottom: 0;
+    font-style: italic;
+}
+code, pre {
+    font-family: Monaco, Andale Mono, Courier New, monospace;
+}
+code {
+    background-color: #fee9cc;
+    color: rgba(0, 0, 0, 0.75);
+    padding: 1px 3px;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    padding: 14px;
+    margin: 0 0 18px;
+    line-height: 16px;
+    font-size: 11px;
+    border: 1px solid #d9d9d9;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+pre code {
+    background-color: #fff;
+    color:#737373;
+    font-size: 11px;
+    padding: 0;
+}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:10px auto;
+    }
+}
+@media print {
+	body,code,pre code,h1,h2,h3,h4,h5,h6 {
+		color: black;
+	}
+	table, pre {
+		page-break-inside: avoid;
+	}
+}
+</style>
+<title>Introduction to Using GitHub</title>
+<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax:{inlineMath:[['$$$','$$$']]}});</script><script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<h1>Introduction to Using GitHub</h1>
+
+<h2>Overview</h2>
+
+<p><img src="file:/Users/Dan/Documents/Teaching/github_intro/GitHub-Overview.png" width="600" alt="Git-GitHub Overview Diagram" /></p>
+
+<h2>Definitions</h2>
+
+<p><br>
+<strong>Stash</strong> - place to hide modifications while working on something else <br>
+<strong>Workspace</strong> - local checkout <br>
+<strong>Index</strong> - staging area that holds a snapshot of the content of the working tree to be used in the next commmit <br>
+<strong>Working Tree</strong> <br>
+<strong>Local Repository</strong> - A subdirectory named .git that contains all of your repository files <br>
+<strong>Upstream Repository</strong> - version of your project hosted on the internet/server/network. Default is <code>origin</code> <br>
+<strong>branch</strong> - used to develop features isolated from each other. The <em>master</em> branch is the default branch. Use other branches for development and merge them back into the master when ready <br>
+<strong>master</strong> - master branch of repository <br>
+<strong>origin</strong> - default upstream repository name <br>
+<strong>HEAD</strong> - current commit object <br>
+<strong>HEAD~1</strong> - parent of HEAD (HEAD~2 = grandparent of HEAD) <br>
+<strong>.gitignore</strong> - text file specifying contents of directory to ignore (ex. <em>.dmg, </em>.exe, *.Rhistory) <br>
+<strong>Fork</strong> - copy of someone else's repository. You can manipulate and keep for your own purposes or improve utility and send pull request to original user so they can incorporate changes into their repository <br></p>
+
+<p><strong>git commands</strong> <br>
+<code>git init</code> - Initializes (creates) a new local repository in the existing directory named .git <br>
+<code>git add &lt;file1&gt; &lt;file2&gt; &lt;dir1&gt;...</code> - adds the contents specified to the index, staging it for the next commit. <code>git clone &lt;repo&gt;</code> - download the repository specified by <code>&lt;repo&gt;</code> and checkout HEAD of the master branch (i.e. creates a copy of an existing project) <br>
+<code>git add .</code> to add all files in the current directory <br>
+<code>git rm &lt;file&gt;</code> - removes file from your index and working directory so no longer tracked <br>
+<code>git commit -m &lt;"message"&gt;</code> - commits staged changes with a message explaining reason for the changes <br>
+<code>git status</code> - display the paths that have differences between the index file and the current HEAD commit, paths that have differences between the workspace and the index file, and paths in the workspace that are not tracked by git <br>
+<code>git branch</code> - list all the local branches <br>
+<code>git branch &lt;branch&gt;</code> - create a new branch named <code>&lt;branch&gt;</code><br>
+<code>git checkout &lt;branch&gt;</code> - switch branches by updating the index and workspace to reflect the specified branch and updating HEAD to be the branch <br>
+<code>git fetch &lt;remote&gt;</code> - retrieves all branches from the remote repository (updates without merging) <br>
+<code>git merge &lt;branch&gt;</code> - merge branch <branch> into current branch <br>
+<code>git pull</code> - fetch changes from the server and merge them into the current branch (keep up to date with a remote repository) <br>
+<code>git push &lt;remote&gt; &lt;branch&gt;</code> - update the server with commits made to <code>&lt;branch&gt;</code> since the last push <br>
+<code>git reset HEAD &lt;file&gt;</code> - remove the specified files from the next commit <br>
+<code>git reset [--hard, --soft, --mixed] &lt;remote&gt;/&lt;branch&gt;</code> <br>
+<code>git diff</code> - compares changes to tracked files <br>
+<code>git stash</code> - temporarily saves changes you aren't ready to commit to yet <br>
+<code>git remote</code> - shows all of the remote versions of your repository <br>
+<code>git remote add &lt;remote&gt; &lt;remote_URL&gt;</code> - adds a remote repository to your git config.
+<code>git revert HEAD</code> - revert to the last commit <br>
+<code>git revert $id</code> - revert to a specific commit <br>
+<code>git cherry-pick [--edit] [-n] [-m parent-number] [-s] [-x] &lt;commit&gt;</code> - selectively merge a single commit from another local branch, Example: <code>git cherry-pick 1610a7130d9457f11a23423b3453m345h3456</code> <br>
+<code>git help &lt;command&gt;</code> - get help on <code>&lt;command&gt;</code> <br>
+<code>git log</code> - shows a listing of commits on a branch including the related details <br></p>
+
+<p>More detailed list of commands and their use can be found at <a href="http://cheat.errtheblog.com/s/git">http://cheat.errtheblog.com/s/git</a></p>
+
+<p>Other good information <a href="http://stackoverflow.com/questions/315911/git-for-beginners-the-definitive-practical-guide">http://stackoverflow.com/questions/315911/git-for-beginners-the-definitive-practical-guide</a></p>
+
+<h2>Directions</h2>
+
+<p><em>This assumes you have set up git on your local machine. If you have not yet done so, you can find step-by-step instructions at <a href="https://help.github.com/articles/set-up-git">https://help.github.com/articles/set-up-git</a></em></p>
+
+<h2>Initial Repository Setup</h2>
+
+<h4><em>OPTION 1: If you do not yet have a folder or files on your local machine</em></h4>
+
+<ol>
+<li>Log into github.com</li>
+<li>Create new repository (+ symbol in upper right)</li>
+<li>Add the name of the repository, a README.md file (check the box "Initialize this repository with a README "), a .gitignore file (optional: allows you to have things that are not tracked, can be added later), a license, and a brief description of the repository</li>
+<li>Decide if the repository will be public (free) or private (pay service)</li>
+<li>Click "Create Repository"</li>
+<li>Highlight and copy the the <strong>HTTPS</strong> clone URL link on the bottom of the right-hand column</li>
+<li>Open your command line interface (Terminal app on Mac OS)</li>
+<li>cd to your desired directory where you want to add (clone) your new folder</li>
+<li>type <code>git clone https://URL-Copied-From-GitHub</code> (if you have the finder window open you can see new folder appear)</li>
+<li> Now you can populate this local folder and push changes to the GitHub repository</li>
+</ol>
+
+
+<h4><em>OPTION 2: If you already have a folder on your computer that you want to create a GitHub repository for</em></h4>
+
+<ol>
+<li>Log into github.com</li>
+<li>Create new repository (+ symbol in upper right)</li>
+<li>Add the name of the repository, <strong>DO NOT</strong> check the box "Initialize this repository with a README ") or add a .gitignore file. It should be okay to add license information and a brief description of the repository</li>
+<li>You should add a README.md file to your folder. This can be done using any markdown or text editor or on the command line using <code>touch README.md</code></li>
+<li>Now use <code>git init</code> to initialize a git file within the folder (cd to the folder in the Terminal first)</li>
+<li>Now use <code>git add README.me</code> to stage the README file</li>
+<li>`git commit -m "initial commit" will commit the change</li>
+<li>Highlight and copy the the <strong>HTTPS</strong> clone URL link on the bottom of the right-hand column of the GitHub repository you created</li>
+<li>On the command line type <code>git remote add origin https://URL-Copied-From-GitHub</code> (if you have the finder window open you can see new folder appear)</li>
+<li><code>git push -u origin master</code> will push everything that has been committed to the GitHub repository</li>
+</ol>
+
+
+<h2>Push changes to folder to GitHub</h2>
+
+<ol>
+<li>Check what files have been changes with <code>git status</code> command</li>
+<li>Add (stage) the files you want to change in the next commit with the <code>git add &lt;file_name&gt;</code> command or use <code>git add .</code> to add all</li>
+<li>Commit to the changes that were staged using <code>git commit -m "Message about why you made the changes"</code>. Now it has saved your changes on your local machine</li>
+<li>Push the changes on your local remote repository to GitHub using <code>git push origin master</code>. This means you are pushing your local remote repository named origin to the GitHub branch named master. You can use different local remote names and you can also work in and push to different branches on GitHub. You can use the <code>git remote</code> command to see what local remote you're working in (default is <code>origin</code>). Now if you check on GitHub.com you will find your files in the master branch updated to match your local files.</li>
+</ol>
+
+
+<h2>Using Git via GUI</h2>
+
+<p><a href="http://www.rstudio.com/ide/docs/version_control/overview?version=0.97.551&amp;mode=desktop">RStudio</a> has git functionality built into the projects option.</p>
+
+<p>There is a nice little tutorial at <a href="http://www.molecularecologist.com/2013/11/using-github-with-r-and-rstudio/">Molecular Ecologist</a></p>
+
+<p><a href="http://www.sourcetreeapp.com/">SourceTree</a> has nice visualization and is available for Windows and Mac.</p>
+
+<p><a href="http://www.syntevo.com/smartgithg/">SmartGit</a> works on Windows, Mac, and Linux and is free for non-commercial use.</p>
+
+<p>GitHub has it's own GUIs for <a href="http://windows.github.com/">Windows</a> and for <a href="http://mac.github.com/">Mac</a>. They must assume Linux users are comfortable enough with command line.</p>
+</body>
+</html>
